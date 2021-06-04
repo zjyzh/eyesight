@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/jishi/jishi",
+    "pages/index/index",
+    "pages/multiCharts/index"
+
+  ],
+  "tabBar": {
+    "color": "#CACFD2",
+    "selectedColor": "#2C3E50",
+    "borderStyle": "black",
+    "backgroundColor": "#FBFCFC",
+    "list": [
+      {
+        "pagePath": "pages/jishi/jishi",
+        "text": "目力闹钟(不是)",
+        "iconPath": "images/new-clock.png",
+        "selectedIconPath": "images/new-clock-h.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "日程",
+        "iconPath": "images/new-calendar.png",
+        "selectedIconPath": "images/new-calendar-h.png"
+      },
+      {
+        "pagePath": "pages/multiCharts/index",
+        "text": "总结",
+        "iconPath": "images/new-summary.png",
+        "selectedIconPath": "images/new-summary-h.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#eee",
+    "navigationBarBackgroundColor": "#cbf1f5",
+    "navigationBarTitleText": "目力小闹钟",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

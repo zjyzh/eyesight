@@ -1,0 +1,72 @@
+<!-- pages/jishi/jishi.wxml -->
+<view class="big-block">
+  <!-- <view class="top-bar" bindlongpress="ClickOnMinutes">{{tipOnTop}}</view> -->
+  <!-- <view class="top-bar-right" bindlongpress="ClickOnMinutes">右边</view> -->
+  <view class="clock-block" bindtap="ClickOnClock" wx:if="{{timeAble}}">
+    <view class="minute-clock" bindlongpress="ClickOnMinutes">{{magicMinutes}}</view>
+    <view class="maohao-clock" bindlongpress="ClickOnS">{{magicSymbol}}</view>
+    <view class="seconds-clock" bindlongpress="ClickOnOthers" >{{magicSeconds}}</view>
+  </view>
+  <view class="search-block" wx:if="{{searchAble}}">
+    <input class="input-block" confirm-type="search" bindconfirm="searchMusic" 
+      placeholder="这里可以找网易云的歌了！"/>
+      <modal wx:if="{{searchOrNot}}" no-cancel="true" bindconfirm="confirmSearch">
+      <scroll-view class="scroll-view" scroll-y="true" >
+      <view class="tip-bar" wx:if="{{searchOrNot}}">（单击试听，长按选择，只可选择一首）</view>
+        <block class="search-list" wx:if="{{searchOrNot}}" wx:for="{{songsResult}}" wx:for-item="song">
+          <view class="songs-block">
+            <view class="songs-info" bindtap="tryPlay" bindlongpress="chooseMusic" data-music-Id="{{song.id}}" data-music-Name="{{song.name}}">
+              <view class="songs-name">{{song.name}}</view>
+              <view class="singer-name">{{song.artists[0].name}}-{{song.album.name}}</view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </modal>
+  </view>
+  <view class="set-list" wx:if="{{setAble}}">
+    <picker-view indicator-style="height: 40px;"  value="{{value}}" bindchange="bindChange">
+      <picker-view-column class="set-list">
+        <view wx:for="{{special_minutes}}" style="line-height: 50px">{{item}}分</view>
+      </picker-view-column>
+      <picker-view-column class="set-list">
+        <view wx:for="{{special_seconds}}" style="line-height: 50px">{{item}}秒</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+  <view class="buttons" wx:if="{{buttonAble}}">
+    <button class="uni-button" bindlongpress="ClickOnMinutes" bindtap="ClickOnStart" wx:if="{{startAble}}">开始</button>
+    <button class="uni-button" bindlongpress="ClickOnSet" bindtap="ClickOnSet" wx:if="{{startAble}}">设置</button>
+    <button class="uni-button" bindlongpress="ClickOnSet" bindtap="ClickOnOk" wx:if="{{okAble}}">确定</button>
+    <button class="uni-button" bindlongpress="ClickOnSet" bindtap="ClickOnCancel" wx:if="{{cancelAble}}">取消</button>
+    <button class="go-on-clock" bindlongpress="ClickOnMinutes" bindtap="ClickOnGo"  style="color:{{continue_color}};border-bottom:{{continue_border}}" wx:if="{{goOnAble}}">继续</button>
+    <button class="uni-button" bindtap="ClickOnPause" wx:if="{{pauseAble}}">暂停</button>
+    <button class="uni-button" bindtap="ClickOnStop" style="position: relative; top: 0rpx" wx:if="{{stopAble}}">停止</button>
+    <button class="uni-button" wx:if="{{tomAble}}" bindtap="ClickOnZys">(彩蛋)Tom Chang is an excellent singer in the world forever.</button>
+  </view>
+  <view class="task" wx:if="{{!buttonAble}}">
+    <view class="choose-task">
+          
+        <image class="uni-button" mark:MyMark="sleep" bindtap="ClickOnChoose" class="button-picture sleep" src="../../images/sleep.png"
+      style="background:{{sleep_background}};color:{{sleep-color}}; padding-bottom:{{sleep_bottom}};  border-bottom:{{sleep_border}}"></image>  
+
+      <image class="uni-button" mark:MyMark="work" bindtap="ClickOnChoose"   class="button-picture work" src="../../images/work.png"
+      style="background:{{work_background}};color:{{work_color}};padding-bottom:{{work_bottom}};  border-bottom:{{work_border}}"></image>  
+
+      <image class="uni-button" mark:MyMark="sports" bindtap="ClickOnChoose"  class="button-picture sport" src="../../images/sport.png"
+      style="background:{{sports_background}};color:{{sports_color}};padding-bottom:{{sport_bottom}};  border-bottom:{{sport_border}}"></image>  
+    
+      <image class="uni-button " mark:MyMark="study" bindtap="ClickOnChoose"   class="button-picture study"
+          style="background:{{study_background}};color:{{study_color}};padding-bottom:{{study_bottom}};  border-bottom:{{study_border}}"
+          src="../../images/study.png"></image>  
+    </view>
+    <view class="choose-task">
+      <button class="comfirm-button" bindtap="ComfirmChoose">{{choice}}</button>
+    </view>
+  </view>
+  <movable-area class="movable-ball">
+    <movable-view class="movable-view" direction="all" inertia="true" bindlongpress="LongOnOVO" bindtap="ClickOnOVO" wx:if="{{winOrNot}}">
+      <image src="{{pictureSrc}}" class="movable-image"></image>
+    </movable-view>
+  </movable-area>
+</view>

@@ -1,0 +1,161 @@
+<view class="calendar">
+    <view class="top">
+        <view class="button-check">
+            <button class="check" style="margin-left:1vw" bindtap="changeDayName">切换</button>
+        </view>
+        <view class="title">
+            日程表
+        </view>
+        <view class="button-add" style="margin-right:1vw" bindtap="addEvent">
+            <button class="add check" >添加</button>
+        </view>
+    </view>
+    <view class="container">
+        <scroll-view scroll-y="{{true}}">
+            <view class="which-day">
+                <view class="{{0 == currentDay ? 'day-sel' : 'day-no-sel'}}" bindtap='dayClick' data-idx='0'>
+                    <text>{{weekDay[0]}}</text>
+                    <hr class="line"/>
+                </view>
+                <view class="{{1 == currentDay ? 'day-sel' : 'day-no-sel'}}" bindtap='dayClick' data-idx='1'>
+                    <text>{{weekDay[1]}}</text>
+                    <hr class="line"/>
+                </view>
+                <view class="{{2 == currentDay ? 'day-sel' : 'day-no-sel'}}" bindtap='dayClick' data-idx='2'>
+                    <text>{{weekDay[2]}}</text>
+                    <hr class="line"/>
+                </view>
+                <view class="{{3 == currentDay ? 'day-sel' : 'day-no-sel'}}" bindtap='dayClick' data-idx='3'>
+                    <text>{{weekDay[3]}}</text>
+                    <hr class="line"/>
+                </view>
+                <view class="{{4 == currentDay ? 'day-sel' : 'day-no-sel'}}" bindtap='dayClick' data-idx='4'>
+                    <text>{{weekDay[4]}}</text>
+                    <hr class="line"/>
+                </view>
+                <view class="{{5 == currentDay ? 'day-sel' : 'day-no-sel'}}" bindtap='dayClick' data-idx='5'>
+                    <text>{{weekDay[5]}}</text>
+                    <hr class="line"/>
+                </view>
+                <view class="{{6 == currentDay ? 'day-sel' : 'day-no-sel'}}" bindtap='dayClick' data-idx='6'>
+                    <text>{{weekDay[6]}}</text>
+                    <hr class="line"/>
+                </view>
+            </view>
+            <swiper class="swiper" bindchange="dayChange" current='{{currentDay}}'>
+                <swiper-item class="swiper">
+                    <view wx:for="{{firstList}}" wx:for-item="item" class='business'>
+                        <view class='event'>
+                            <scroll-view scroll-y="{{true}}" class="event-content">
+                                日程：{{item.content}}
+                            </scroll-view>
+                            <span>时间：{{item.time}}</span>
+                            <view>
+                                <button class="del-button" bindtap="delEvent" data-id="{{item.id}}">删除</button>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+                <swiper-item class="swiper">
+                    <view wx:for="{{secondList}}" wx:for-item="item" class='business'>
+                        <view class='event'>
+                            <scroll-view scroll-y="{{true}}" class="event-content">
+                                日程：{{item.content}}
+                            </scroll-view>
+                            <span>时间：{{item.time}}</span>
+                            <view>
+                                <button class="del-button" bindtap="delEvent"  data-id="{{item.id}}">删除</button>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+                <swiper-item class="swiper">
+                    <view wx:for="{{thirdList}}" wx:for-item="item" class='business'>
+                        <view class='event'>
+                            <scroll-view scroll-y="{{true}}" class="event-content">
+                                日程：{{item.content}}
+                            </scroll-view>
+                            <span>时间：{{item.time}}</span>
+                            <view>
+                                <button class="del-button" bindtap="delEvent" data-id="{{item.id}}">删除</button>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+                <swiper-item class="swiper">
+                    <view wx:for="{{fourList}}" wx:for-item="item" class='business'>
+                        <view class='event'>
+                            <scroll-view scroll-y="{{true}}" class="event-content">
+                                日程：{{item.content}}
+                            </scroll-view>
+                            <span>时间：{{item.time}}</span>
+                            <view>
+                                <button class="del-button"  bindtap="delEvent" data-id="{{item.id}}">删除</button>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+                <swiper-item class="swiper">
+                    <view wx:for="{{fiveList}}" wx:for-item="item" class='business'>
+                        <view class='event'>
+                            <scroll-view scroll-y="{{true}}" class="event-content">
+                                日程：{{item.content}}
+                            </scroll-view>
+                            <span>时间：{{item.time}}</span>
+                            <view>
+                                <button class="del-button"  bindtap="delEvent" data-id="{{item.id}}">删除</button>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+                <swiper-item class="swiper">
+                    <view wx:for="{{sixList}}" wx:for-item="item" class='business'>
+                        <view class='event'>
+                            <scroll-view scroll-y="{{true}}" class="event-content">
+                                日程：{{item.content}}
+                            </scroll-view>
+                            <span>时间：{{item.time}}</span>
+                            <view>
+                                <button class="del-button"  bindtap="delEvent" data-id="{{item.id}}">删除</button>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+                <swiper-item class="swiper">
+                    <view wx:for="{{sevenList}}" wx:for-item="item" class='business'>
+                        <view class='event'>
+                            <scroll-view scroll-y="{{true}}" class="event-content">
+                                日程：{{item.content}}
+                            </scroll-view>
+                            <span>时间：{{item.time}}</span>
+                            <view>
+                                <button class="del-button" bindtap="delEvent" data-id="{{item.id}}">删除</button>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </scroll-view>
+    </view>
+    <modal hidden="{{onOffAdd}}"  title="请添加日程" 
+   		confirm-text="提交" cancel-text="取消" bindcancel="cancelAdd" 
+   		bindconfirm="confirmAdd">
+        <view class="picker-section">
+            <picker mode="date" value="{{addDate}}" start="2000-01-01" end="2050-01-01" bindchange="bindDateChange">
+                <view class="picker">
+                    日期：{{addDate}}
+                </view>
+            </picker>
+        </view>
+        <view class="picker-section">
+            <picker mode="time" value="{{addTime}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                <view class="picker">
+                    时间：{{addTime}}
+                </view>
+            </picker>
+        </view>     
+        <view class="add-event">
+            内容：<input value="{{inputContent}}" type="text" placeholder="请输入日程内容" bindinput="addContent"/>
+        </view>    
+    </modal>
+</view>

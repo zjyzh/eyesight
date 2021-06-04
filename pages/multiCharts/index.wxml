@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<image class="s"  bindtap="refresh_page"  src="../../images/refresh.png"  wx:if="{{goOnAble}}"></image>  
+<view class="container">
+ 
+  <ec-canvas id="mychart-dom-multi-bar" canvas-id="mychart-multi-bar" ec="{{ ecBar }}"></ec-canvas>
+  <ec-canvas id="mychart-dom-multi-scatter" canvas-id="mychart-multi-scatter" ec="{{ ecScatter }}"></ec-canvas>
+</view>
